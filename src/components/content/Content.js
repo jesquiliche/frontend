@@ -5,16 +5,13 @@ import { Routes, Route } from "react-router-dom";
 import Usuario from "../Usuario";
 import Login from "../login";
 import Register from "../Register";
-import Tema from "../Tema";
 import Topbar from "./Topbar";
-import Bloque from "../Bloque";
 import Tablero from "../Tablero";
 import Home from "../Home";
-import AddUser from "../AddUser";
 import UserProvider from "../../context/UserProvider";
 import RequireAuth from "../ RequireAuth";
-import EditUser from "../EditUser";
 import Proveedor from "../Proveedor";
+import Producto from "../Producto";
 
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
   <Container
@@ -26,9 +23,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
       <Routes>
         <Route exact path="/" element={<Login />} />
         <Route exact path="/Tablero" element={<Tablero />} />
-        <Route exact path="/AddUser" element={<AddUser />} />
         <Route exact path="/about" element={() => "About"} />
-        <Route exact path="/Pages" element={() => "Pages"} />
         <Route exact path="/Registrar" element={<Register />} />
         <Route exact path="/contact" element={() => "Contact"} />
         <Route
@@ -41,23 +36,12 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
           }
         />
         <Route exact path="/Login" element={<Login />} />
-        <Route exact path="/editUser/:id" element={<EditUser />} />
-
         <Route
           exact
-          path="/Tema"
+          path="/Producto"
           element={
             <RequireAuth>
-              <Tema />
-            </RequireAuth>
-          }
-        />
-        <Route
-          exact
-          path="/Bloque"
-          element={
-            <RequireAuth>
-              <Bloque />
+              <Producto />
             </RequireAuth>
           }
         />

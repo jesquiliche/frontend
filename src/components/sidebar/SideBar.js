@@ -4,8 +4,6 @@ import {
   faHome,
   faBriefcase,
   faPaperPlane,
-  faQuestion,
-  faImage,
   faCopy,
   faUniversity,
 } from "@fortawesome/free-solid-svg-icons";
@@ -83,8 +81,8 @@ const submenus = [
       target: "/Proveedor",
     },
     {
-      title: "Page 2",
-      target: "Page-2",
+      title: "Productos",
+      target: "/Producto",
     },
   ],
 ];

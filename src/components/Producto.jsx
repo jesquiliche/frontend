@@ -14,9 +14,9 @@ import {
 
 import { useNavigate } from "react-router-dom";
 
-const Proveedor = (props) => {
+const Producto = (props) => {
   const navigate = useNavigate();
-  const [proveedores, setProveedores] = useState([]);
+  const [productos, setProductos] = useState([]);
   const [dataErr, setDataErr] = useState();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Proveedor = (props) => {
   const ConsultarDatos = () => {
     const token = sessionStorage.getItem("token");
 
-    fetch(`http://localhost:8000/api/v1/proveedores`, {
+    fetch(`http://localhost:8000/api/v1/productos`, {
       method: "GET",
       headers: {
         Authorization: "bearer " + token.replace(/['"]+/g, ""),
@@ -37,7 +37,7 @@ const Proveedor = (props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setProveedores(data);
+        setProductos(data);
         console.log(data);
       })
       .catch((error) => setDataErr("Error"));
@@ -48,23 +48,23 @@ const Proveedor = (props) => {
       <div className="container">
         <div className="bg card card-shadow col-lg-12 mx-auto">
           <div className="text-center">
-            <h3>Proveedores</h3>
+            <h3>Productos</h3>
           </div>
           <div className="card-body">
             <table className="table table-striped">
               <thead>
-                <th>Nif</th>
                 <th>Nombre</th>
-                <th>C. Postal</th>
-                <th>Población</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Imagen</th>
               </thead>
               <tbody>
-                {proveedores.map((e) => (
+                {productos.map((e) => (
                   <tr>
-                    <td>{e.nif}</td>
                     <td>{e.nombre}</td>
-                    <td>{e.cod_postal}</td>
-                    <td>{e.poblacion}</td>
+                    <td>{e.descripcion}</td>
+                    <td>{e.precio}</td>
+                    <td>{e.imagen}</td>
                     <td>
                       <Button color="danger mx-1">
                         <FontAwesomeIcon
@@ -91,4 +91,4 @@ const Proveedor = (props) => {
   );
 };
 
-export default Proveedor;
+export default Producto;
