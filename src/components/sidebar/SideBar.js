@@ -28,35 +28,15 @@ const SideBar = ({ isOpen, toggle }) => {
             size="50"
             className="mr-2 ml-0 text-white"
           />
-          INFOTEST
+          JQE
         </h3>
       </div>
       <div className="side-menu">
         <Nav vertical className="list-unstyled pb-3">
           <p>Configuración</p>
-          <SubMenu title="Colecciones >" icon={faHome} items={submenus[0]} />
-          <NavItem>
-            <NavLink tag={Link} to={"/about"}>
-              <FontAwesomeIcon
-                icon={faBriefcase}
-                className="mr-2 ml-0 text-white"
-              />
-              <span className="text-white"> Acerca </span>
-            </NavLink>
-          </NavItem>
-          <SubMenu title="Pages >" icon={faCopy} items={submenus[1]} />
-          <NavItem>
-            <NavLink tag={Link} to={"/pages"}>
-              <FontAwesomeIcon icon={faImage} className="mr-2" />
-              <span className="text-white"> Portfolio</span>
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to={"/faq"}>
-              <FontAwesomeIcon icon={faQuestion} className="mr-2 text-white" />
-              <span className="text-white"> FAQ</span>
-            </NavLink>
-          </NavItem>
+          <SubMenu title="Usuario >" icon={faHome} items={submenus[0]} />
+
+          <SubMenu title="Tablas >" icon={faCopy} items={submenus[1]} />
           <NavItem>
             <NavLink tag={Link} to={"/contact"}>
               <FontAwesomeIcon
@@ -64,6 +44,15 @@ const SideBar = ({ isOpen, toggle }) => {
                 className="mr-2 text-white"
               />
               <span className="text-white"> Contacto</span>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={Link} to={"/about"}>
+              <FontAwesomeIcon
+                icon={faBriefcase}
+                className="mr-2 ml-0 text-white"
+              />
+              <span className="text-white"> Acerca de ..</span>
             </NavLink>
           </NavItem>
         </Nav>
@@ -82,18 +71,7 @@ const submenus = [
       title: "Usuarios",
       target: "/Usuario",
     },
-    {
-      title: "Temas",
-      target: "/Tema",
-    },
-    {
-      title: "Bloques",
-      target: "/Bloque",
-    },
-    {
-      title: "Preguntas",
-      target: "Home-3",
-    },
+    ,
     {
       title: "Registrar",
       target: "/Registrar",
@@ -101,8 +79,8 @@ const submenus = [
   ],
   [
     {
-      title: "Page 1",
-      target: "Page-1",
+      title: "Proveedores",
+      target: "/Proveedor",
     },
     {
       title: "Page 2",

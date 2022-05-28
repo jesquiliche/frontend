@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,18 +10,15 @@ import {
   Collapse,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const Topbar = ({toggleSidebar}) => {
-  const { user} = useContext(UserContext);
-
-  
-  
+const Topbar = ({ toggleSidebar }) => {
+  const { user } = useContext(UserContext);
 
   const [topbarIsOpen, setTopbarOpen] = useState(true);
-  const toggleTopbar = () => user ? setTopbarOpen(!topbarIsOpen):false;
+  const toggleTopbar = () => (user ? setTopbarOpen(!topbarIsOpen) : false);
 
   return (
     <Navbar
@@ -32,18 +29,20 @@ const Topbar = ({toggleSidebar}) => {
     >
       <Button color="info" onClick={toggleSidebar}>
         <FontAwesomeIcon icon={faAlignLeft} />
-      </Button>)
-      <h2 ><span><b className="text-primary"> 
-        
-        INFOTEST</b></span><i>  Manager</i> 
+      </Button>
+      )
+      <h2>
+        <span>
+          <b className="text-primary">ECOMMERCE</b>
+        </span>
+        <i> Manager</i>
       </h2>
       <NavbarToggler onClick={toggleTopbar} />
       <Collapse isOpen={topbarIsOpen} navbar>
         <Nav className="ml-auto" navbar>
-          
           <NavItem>
             <NavLink tag={Link} to={"/page-1"}>
-                 {user ? "CONECTADO":"NO CONECTADO"}
+              {user ? "CONECTADO" : "NO CONECTADO"}
             </NavLink>
           </NavItem>
           <NavItem>

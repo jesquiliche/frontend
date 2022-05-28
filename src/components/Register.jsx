@@ -10,8 +10,8 @@ const Register = (props) => {
     email: "",
     password: "",
   });
-  const [dataErr, setDataErr] = useState({});
-  let [err, setErr] = useState([]);
+
+  const [err, setErr] = useState([]);
 
   const handleOnChange = (e) => {
     setDatos({
@@ -20,49 +20,37 @@ const Register = (props) => {
     });
   };
 
-  const handleOnsubmit = (e) => {
+  const handleOnsubmit = async (e) => {
     e.preventDefault();
-    InsertarDatos(datos);
+    await InsertarDatos(datos);
   };
 
   //Insertar en base de datos
-  let dat1;
   const InsertarDatos = async () => {
     const cookies = new Cookies();
 
-    await fetch("http://localhost:8000/api/register", {
+    const data = await fetch("http://localhost:8000/api/register", {
       method: "POST",
       body: JSON.stringify(datos), // data can be `string` or {object}!
-
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-    })
-      .then((response) => {
-        console.log(response.status);
-        //  setDataErr(response.json())
-        return response.json();
-      })
-      .then((data) => {
-        setDataErr(data);
-      })
-      .catch((error) => setDataErr("Credenciales no validas"));
+    });
 
+    const response = await data.json();
     let errorArray = [];
-    for (const property in dataErr) {
-      errorArray.push(`${dataErr[property]}`);
+    for (const property in response) {
+      errorArray.push(`${response[property]}`);
     }
 
     setErr(errorArray);
-    console.log(err);
-    // console.log(cookies.get("token"))
   };
 
   return (
     <>
       <div className="container">
-        <div className="bg card card-shadow col-lg-4 mx-auto my-6 mt-4">
+        <div className="bg card card-shadow col-lg-6 mx-auto my-6 mt-4">
           <div className="text-center">
             <h1>Registro</h1>
             <h2>{id}</h2>
@@ -78,7 +66,6 @@ const Register = (props) => {
                   pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
                   onChange={handleOnChange}
                   autoFocus="autofocus"
-                  required
                 />
 
                 <input
@@ -94,21 +81,19 @@ const Register = (props) => {
                   name="name"
                   className="form-control my-2"
                   onChange={handleOnChange}
-                  required
                 />
+              </div>
+              <div className="px-4 py-1 mt-4 alert alert-primary" role="alert">
+                {err.map((e, i) => (
+                  <div key={i}>
+                    <h6>{e}</h6>
+                  </div>
+                ))}
               </div>
               <button type="submit" className="btn btn-primary w-100">
                 Registrarse
               </button>
             </form>
-          </div>
-
-          <div className="px-2 py-1">
-            {err.map((e, i) => (
-              <div>
-                <h7 key={i}>{e}</h7>
-              </div>
-            ))}
           </div>
         </div>
       </div>

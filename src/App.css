@@ -12,15 +12,16 @@ body {
 }
 
 .card {
-  border-radius:12px;
-  background: rgb(239, 245, 245,0.6);
+  border-radius: 12px;
+  background: rgb(239, 245, 245, 0.6);
   box-shadow: 8px 8px 8px rgba(100, 100, 100, 0.5);
   border-width: 1px;
   border-left-width: 1px;
   border-color: rgb(201, 201, 216);
 }
 
-.form-control,.form-select{
+.form-control,
+.form-select {
   border-radius: 1px;
   box-shadow: 5px 5px 4px rgba(100, 100, 100, 0.5);
   border-bottom: blue;
@@ -49,7 +50,7 @@ a:focus {
 ----------------------------------------------------- */
 .sidebar {
   min-width: 210px;
-  max-width: 240px;
+  max-width: 260px;
   background: #5555acea;
   color: #fff;
   margin-left: -250px;
@@ -78,10 +79,8 @@ a:focus {
   padding: 10px;
 }
 
-
 .menu-open {
   background: #5555acea;
-  
 }
 
 .nav-item:hover {
@@ -162,6 +161,4 @@ li a.dropdown-toggle::after {
     position: relative;
     left: 68%;
   }
-
-
 }
