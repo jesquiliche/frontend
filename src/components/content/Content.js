@@ -13,6 +13,8 @@ import RequireAuth from "../ RequireAuth";
 import Proveedor from "../Proveedor";
 import Producto from "../Producto";
 import Oferta from "../Oferta";
+import Provincia from "../Provincia";
+import Marca from "../Marca";
 
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
   <Container
@@ -55,7 +57,33 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
             </RequireAuth>
           }
         />
-        <Route exact path="/Proveedor" element={<Proveedor />} />
+        <Route
+          exact
+          path="/Provincia"
+          element={
+            <RequireAuth>
+              <Provincia />
+            </RequireAuth>
+          }
+        />
+        <Route
+          exact
+          path="/Proveedor"
+          element={
+            <RequireAuth>
+              <Proveedor />
+            </RequireAuth>
+          }
+        />
+        <Route
+          exact
+          path="/Marca"
+          element={
+            <RequireAuth>
+              <Marca />
+            </RequireAuth>
+          }
+        />
       </Routes>
     </UserProvider>
   </Container>

@@ -13,6 +13,8 @@ import Home from "../Home";
 import Proveedor from "../Proveedor";
 import Producto from "../Producto";
 import Producto from "../Oferta";
+import Provincia from "../Provincia";
+import Marca from "../Marca";
 
 const Rutas = ({ sidebarIsOpen, toggleSidebar }) => (
   <Routes>
@@ -27,6 +29,7 @@ const Rutas = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/Producto" element={<Producto />} />
     <Route exact path="/Home" element={<Home />} />
     <Route exact path="/Oferta" element={<Home />} />
+    <Route exact path="/Marca" element={<Marca />} />
   </Routes>
 );
 
