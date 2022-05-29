@@ -12,6 +12,7 @@ import Tablero from "../Tablero";
 import Home from "../Home";
 import Proveedor from "../Proveedor";
 import Producto from "../Producto";
+import Producto from "../Oferta";
 
 const Rutas = ({ sidebarIsOpen, toggleSidebar }) => (
   <Routes>
@@ -25,6 +26,7 @@ const Rutas = ({ sidebarIsOpen, toggleSidebar }) => (
     <Route exact path="/Proveedor" element={<Proveedor />} />
     <Route exact path="/Producto" element={<Producto />} />
     <Route exact path="/Home" element={<Home />} />
+    <Route exact path="/Oferta" element={<Home />} />
   </Routes>
 );
 

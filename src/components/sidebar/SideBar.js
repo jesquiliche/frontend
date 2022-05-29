@@ -84,6 +84,10 @@ const submenus = [
       title: "Productos",
       target: "/Producto",
     },
+    {
+      title: "Ofertas",
+      target: "/Oferta",
+    },
   ],
 ];
 

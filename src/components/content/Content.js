@@ -12,6 +12,7 @@ import UserProvider from "../../context/UserProvider";
 import RequireAuth from "../ RequireAuth";
 import Proveedor from "../Proveedor";
 import Producto from "../Producto";
+import Oferta from "../Oferta";
 
 const Content = ({ sidebarIsOpen, toggleSidebar }) => (
   <Container
@@ -42,6 +43,15 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
           element={
             <RequireAuth>
               <Producto />
+            </RequireAuth>
+          }
+        />
+        <Route
+          exact
+          path="/Oferta"
+          element={
+            <RequireAuth>
+              <Oferta />
             </RequireAuth>
           }
         />
