@@ -11,7 +11,7 @@ import {
   faPlusSquare as add,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-
+import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 
 const Proveedor = (props) => {
@@ -25,7 +25,8 @@ const Proveedor = (props) => {
 
   //Consultamos los datos de la tabla proveedores
   const ConsultarDatos = () => {
-    const token = sessionStorage.getItem("token");
+    const cookies = new Cookies();
+    const token = cookies.get("token");
 
     fetch(`http://localhost:8000/api/v1/proveedores`, {
       method: "GET",
